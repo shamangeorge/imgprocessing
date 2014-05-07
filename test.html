@@ -1,0 +1,40 @@
+<script type="text/javascript" src="./js/glfx.js"></script>
+<style>
+body {
+    text-align: center;
+}
+</style>
+<script>
+window.onload = function() {
+    // try to create a WebGL canvas (will fail if WebGL isn't supported)
+    try {
+        var canvas = fx.canvas();
+    } catch (e) {
+        alert(e);
+        return;
+    }
+    var video = document.getElementById('video');
+    video.width = 512;
+    video.height = 256;
+    var texture = canvas.texture(video);
+    var radius = 100;
+    var x = 250;
+    var y = 250;
+    texture.loadContentsOf(video);
+    canvas.draw(texture).swirl(x, y, radius, 2*Math.PI).update();
+
+    function anim() {
+        canvas.draw(texture).swirl(x, y, radius, 2*Math.PI).update();
+        texture.loadContentsOf(video);
+        requestAnimationFrame(anim);
+    }
+    canvas.addEventListener('mousemove', function(evt) {
+        x = evt.clientX - video.width;
+        y = evt.clientY;
+    });
+    video.parentNode.insertBefore(canvas, video);
+    // video.parentNode.removeChild(video);
+    anim();
+};
+</script>
+<img id="video" src='./img/image.jpg' width='512' height='256'>

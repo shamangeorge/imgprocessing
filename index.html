@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WineGlass Video Processing</title>
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script type="text/javascript" src="./js/glfx.js"></script>
+    <script type="text/javascript" src="./js/main.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/main.css">
+</head>
+<body>
+
+    <div class="placeholder">
+        <div id="container">
+            <span id="placeholder">Loading...</span>
+            <div id="nubs"></div>
+        </div>
+        <div id="label">&nbsp;</div>
+    </div>
+    <table id="properties"><tbody><tr>
+        <th>Filter:</th>
+        <td><select id="filters"></select></td>
+    </tr>
+    </tbody>
+    </table>
+    <video id='video' src='https://s3.amazonaws.com/pyth.js/video/elephants_dream.mp4' crossorigin controls autoplay loop></video>
+</body>
+</html>
