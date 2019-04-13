@@ -29,7 +29,7 @@ window.onload = function() {
         requestAnimationFrame(anim);
     }
     canvas.addEventListener('mousemove', function(evt) {
-        x = evt.clientX - video.width;
+        x = evt.clientX;
         y = evt.clientY;
     });
     video.parentNode.insertBefore(canvas, video);
